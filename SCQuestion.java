@@ -11,7 +11,6 @@ public class SCQuestion extends Question {
         }
     }
 
-    /** Check the answer of the submission, only allow one answer since this is single choice. */
     public String checkA(List<String> submittedAnswers) {
         if (submittedAnswers.size() != 1) {
             return "This is a single choice answer, please submit one answer.";
