@@ -9,7 +9,7 @@ public class MCQuestion extends Question {
         super(description, choices, correct);
     }
 
-    /** Check the multiple choice answer, make sure at least one answer was submitted. */
+   //make sure at least one answer was submitted.
     public String checkA(List<String> submittedAnswers) {
         if (submittedAnswers.size() < 1) {
             return "Please submit at least one answer.";
