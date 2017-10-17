@@ -4,15 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
-  * I designed this application while keeping in mind that I can switch out the
-  *	driver with something more console driven, where you can enter all of these
-  *	variables in manually, then each student can submit their answer. I didn't
-  *	have the time to make this alternate Driver but if you think about this while
-  *	looking over my code you'll have a better understanding of why I did some of
-  *	this differently.
- */
-
 public class SimulationDriver {
 
     public static void main(String[] args) {
@@ -56,13 +47,10 @@ public class SimulationDriver {
                 question = new SCQuestion(q, choices, answers);
                 break;
         }
-
-        // 2)
-        // configure IClickerService
+     
         iClicker = new IClickerService(question);
 
-        // 3 and 4)
-        // create students, generate an answer, then submit the answer
+      
         for (Integer i = 0; i < students.length; i++) {
             students[i] = new Student();
             students[i].enterAnswers(randGenAnswers(choices, qType));
@@ -88,16 +76,11 @@ public class SimulationDriver {
         // end submissions
         iClicker.endSubmissions();
 
-        // 5)
-        // show statistics
+ 
         System.out.println("After answers have been checked.");
         System.out.println(iClicker.showStats());
     }
 
-    /**
-      * Randomly generate answers, duplicate answers can be in the returning array.
-      * Does not allow answers outside of the available choices.
-      */
     private static List<String> randGenAnswers(List<String> choices, String type) {
         Integer numAnswers = 1;
         final Random rand = new Random();
